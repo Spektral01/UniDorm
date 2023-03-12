@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">UniDorm</string>
     <string name="button">Button</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Login">Войти</string>
+    <string name="GuestIn">Я гость</string>
+
 </resources>
