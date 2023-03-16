@@ -5,5 +5,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Login">Войти</string>
     <string name="GuestIn">Я гость</string>
+    <string name="Notification">Объявления</string>
+    <string name="mapText">Карта</string>
+    <string name="shopText">Магазин</string>
+    <string name="cleaningQueueText">Дежурство</string>
+    <string name="infoHelpText">Справка</string>
 
 </resources>

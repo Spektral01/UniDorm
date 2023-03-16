@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.UniDorm" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="Theme.UniDorm" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -18,6 +18,10 @@
 
     <style name="textStyleMain">
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="roundImageView">
+        <item name="cornerSize">50%</item>
     </style>
 
 </resources>

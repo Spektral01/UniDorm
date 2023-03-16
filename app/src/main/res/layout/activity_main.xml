@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity_notification">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -44,12 +44,13 @@
         android:id="@+id/loginBtn"
         android:layout_width="180dp"
         android:layout_height="50dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_button_purple"
         android:text="@string/Login"
-        android:theme="@style/textStyleMain"
         android:textColor="@color/white"
+        android:theme="@style/textStyleMain"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -60,7 +61,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/rounded_button_white"
         android:text="@string/GuestIn"
-        android:theme="@style/textStyleMain"
+
         android:textColor="@color/purple_500"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
