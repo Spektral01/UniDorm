@@ -12,7 +12,7 @@
         android:theme="@style/Theme.UniDorm"
         tools:targetApi="31">
         <activity
-            android:name=".NotificationActivity"
+            android:name=".NavigationActivity"
             android:exported="false" />
 
         <activity

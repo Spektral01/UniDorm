@@ -3,7 +3,6 @@ package com.example.unidorm
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import com.example.unidorm.databinding.ActivityMainBinding
 
@@ -12,6 +11,7 @@ class MainActivity : AppCompatActivity() {
 private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
         binding.guestBtn.setOnClickListener { onClickGuestLogin() }
@@ -19,7 +19,7 @@ private lateinit var binding: ActivityMainBinding
     }
 
     private fun onClickGuestLogin() {
-        val intent = Intent(this, NotificationActivity::class.java)
+        val intent = Intent(this, NavigationActivity::class.java)
         Toast.makeText(this, "WORK",Toast.LENGTH_SHORT).show()
         startActivity(intent)
     }

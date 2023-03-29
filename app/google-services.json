@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "521821076810",
-    "firebase_url": "https://unidormbd-default-rtdb.europe-west1.firebasedatabase.app",
-    "project_id": "unidormbd",
-    "storage_bucket": "unidormbd.appspot.com"
+    "project_number": "860519113711",
+    "firebase_url": "https://unidormdb-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "unidormdb",
+    "storage_bucket": "unidormdb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:521821076810:android:c8914a0004e1ecb72195b3",
+        "mobilesdk_app_id": "1:860519113711:android:c64fa2b1d1dc9a493e8c1a",
         "android_client_info": {
           "package_name": "com.example.unidorm"
         }
       },
       "oauth_client": [
         {
-          "client_id": "521821076810-6ju0cn7s720mmjdujjc1ogr1khll0819.apps.googleusercontent.com",
+          "client_id": "860519113711-p4hp61litubo92h4tredra4lnd1kku8p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCCCE3-PGs3h3KQW9YIgWlzUbOfNHJGk4g"
+          "current_key": "AIzaSyAdype9NSuXapHBdTjV4lS-2X2BXYdPZf0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "521821076810-6ju0cn7s720mmjdujjc1ogr1khll0819.apps.googleusercontent.com",
+              "client_id": "860519113711-p4hp61litubo92h4tredra4lnd1kku8p.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

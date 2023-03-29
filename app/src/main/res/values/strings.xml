@@ -6,9 +6,12 @@
     <string name="Login">Войти</string>
     <string name="GuestIn">Я гость</string>
     <string name="Notification">Объявления</string>
-    <string name="mapText">Карта</string>
+    <string name="accountInfoText">Личный кабинет</string>
     <string name="shopText">Магазин</string>
     <string name="cleaningQueueText">Дежурство</string>
     <string name="infoHelpText">Справка</string>
+    <string name="open">Открыть</string>
+    <string name="close">Закрыть</string>
+
 
 </resources>
