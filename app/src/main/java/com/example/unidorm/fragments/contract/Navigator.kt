@@ -15,8 +15,11 @@ interface Navigator {
     fun showNotificationScreen()
 
     fun showInfoScreen()
+    fun showShopScreen()
 
+    fun showAccountScreen()
     fun showCreateNotificationScreen()
+    fun showSearchItemDrawer()
 /*
     fun showCabinetScreen()
 

@@ -24,4 +24,10 @@
         <item name="cornerSize">50%</item>
     </style>
 
+    <style name="userAccText" parent="android:Widget.TextView">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#BAAACD</item>
+    </style>
+
 </resources>
