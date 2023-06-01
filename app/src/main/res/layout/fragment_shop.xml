@@ -7,19 +7,7 @@
     tools:context=".fragments.ShopFragment"
     android:id="@+id/shop_const">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/searchBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/ic_search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.898"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951"
-        android:contentDescription="newNotif" />
+
     <LinearLayout
         android:id="@+id/searchDrawer"
         android:layout_width="match_parent"
@@ -27,21 +15,20 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:layout_constraintTop_toBottomOf="@+id/ationBtnLinearLayout">
 
 
         <RelativeLayout
             android:id="@+id/searchLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:visibility="gone">
 
-            <EditText
-                android:id="@+id/edit_text"
+            <SearchView
+                android:id="@+id/searchView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="64dp"
                 android:layout_gravity="center"
 
                 android:layout_marginStart="16dp"
@@ -52,40 +39,70 @@
                 android:backgroundTint="#D3D6DB"
                 android:hint="Введите текст"
                 android:padding="15dp"
-                android:visibility="visible" />
+                android:visibility="visible">
 
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="wrap_content"
+            </SearchView>
+
+            <Spinner
+                android:id="@+id/dropdownDormSortMenu"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/edit_text"
-                android:layout_alignTop="@+id/edit_text"
-                android:layout_alignBottom="@+id/edit_text"
-                android:layout_alignParentEnd="true"
-                android:layout_gravity="center"
-                android:layout_marginStart="330dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="17dp"
-                android:layout_marginBottom="0dp"
-                android:src="@android:drawable/ic_menu_search" />
+                android:layout_below="@+id/searchView"
+                android:layout_alignStart="@+id/searchView"
+                android:layout_alignEnd="@+id/searchView"
+                android:layout_marginStart="-16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="-16dp"
+                android:layout_weight="2"
+                android:visibility="visible" />
 
         </RelativeLayout>
 
-        <Spinner
-            android:id="@+id/dropdownDormSortMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:visibility="gone" />
 
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listView"
+    <LinearLayout
+        android:id="@+id/ationBtnLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/searchDrawer">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-    </ListView>
+        <Button
+            android:id="@+id/searchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button_purple"
+            android:text="Поиск" />
+
+        <Button
+            android:id="@+id/addItemBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button_purple"
+            android:text="Добавить"
+
+            />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemShopListRView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchDrawer"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/item_shop_list"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

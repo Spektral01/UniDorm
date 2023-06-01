@@ -30,9 +30,8 @@
 
                 <ImageView
                     android:id="@+id/imageUserPort"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
                     android:src="@drawable/user_portrait_inside_empty"
                     app:tint="@color/purple_700" />
 
@@ -41,8 +40,7 @@
                     style="@style/userAccText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="2"
+                    android:layout_marginStart="16dp"
                     android:text="TextView" />
             </LinearLayout>
 
@@ -61,9 +59,8 @@
 
                 <ImageView
                     android:id="@+id/imageUserPhone"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
                     android:src="@drawable/user_phone"
                     app:tint="@color/purple_700" />
 
@@ -72,8 +69,7 @@
                     style="@style/userAccText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="2"
+                    android:layout_marginStart="16dp"
                     android:text="TextView" />
 
             </LinearLayout>
@@ -93,9 +89,8 @@
 
                 <ImageView
                     android:id="@+id/imageUserDorm"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
                     android:src="@drawable/user_dorm"
                     app:tint="@color/purple_700" />
 
@@ -104,8 +99,7 @@
                     style="@style/userAccText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="2"
+                    android:layout_marginStart="16dp"
                     android:text="TextView" />
             </LinearLayout>
 
@@ -124,10 +118,9 @@
 
                 <ImageView
                     android:id="@+id/imageUserRoom"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:src="@drawable/user_room"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/door_ic"
                     app:tint="@color/purple_700" />
 
                 <TextView
@@ -135,8 +128,7 @@
                     style="@style/userAccText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="2"
+                    android:layout_marginStart="16dp"
                     android:text="TextView" />
             </LinearLayout>
 

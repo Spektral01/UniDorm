@@ -2,23 +2,17 @@ package com.example.unidorm
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.MenuItem
-import android.view.View
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.Toast
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.unidorm.databinding.ActivityNavigationBinding
 import com.example.unidorm.fragments.AccountFragment
 import com.example.unidorm.fragments.AddressInfoFragment
 import com.example.unidorm.fragments.CreateNotificationFragment
+import com.example.unidorm.fragments.ItemInShopFragment
+import com.example.unidorm.fragments.ItemSellFragment
 import com.example.unidorm.fragments.NotificationFragment
 import com.example.unidorm.fragments.SearchItemFragment
 import com.example.unidorm.fragments.ShopFragment
@@ -102,6 +96,10 @@ class NavigationActivity : AppCompatActivity(), Navigator {
         launchFragment(NotificationFragment())
     }
 
+    override fun showItemSellScreen() {
+        launchFragment(ItemSellFragment())
+    }
+
     override fun showAccountScreen() {
         launchFragment(AccountFragment())
     }
@@ -114,4 +112,7 @@ class NavigationActivity : AppCompatActivity(), Navigator {
         launchFragment(SearchItemFragment())
     }
 
+    override fun showItemInShopFragment(fragment: Fragment){
+        launchFragment(fragment)
+    }
 }

@@ -20,6 +20,10 @@ interface Navigator {
     fun showAccountScreen()
     fun showCreateNotificationScreen()
     fun showSearchItemDrawer()
+
+    fun showItemSellScreen()
+
+    fun showItemInShopFragment(fragment: Fragment)
 /*
     fun showCabinetScreen()
 

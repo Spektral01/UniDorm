@@ -1,31 +1,26 @@
 package com.example.unidorm.fragments
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unidorm.databinding.FragmentAccountBinding
+import com.example.unidorm.databinding.FragmentNotifDiscrBinding
+import com.example.unidorm.model.dbModel.NotificationModel
 import com.example.unidorm.model.dbModel.ShopItemModel
 import com.example.unidorm.model.dbModel.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import java.util.ArrayList
 
 
-class AccountFragment : Fragment() {
+class NotifDiscrFragment : Fragment() {
 
-    private var _binding: FragmentAccountBinding? = null
+    private var _binding: FragmentNotifDiscrBinding? = null
     private val binding get() = _binding!!
-
-    private lateinit var dbRef: DatabaseReference
-    private var UserList = mutableListOf<UserModel>()
-
 
 
     override fun onCreateView(
@@ -33,40 +28,49 @@ class AccountFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentAccountBinding.inflate(inflater, container, false)
+        val notif = arguments?.getParcelable<NotificationModel>("notif")
 
-        fetchDataFromFirebase()
+        _binding = FragmentNotifDiscrBinding.inflate(inflater, container, false)
+
+        //fetchDataFromFirebase()
+
+        if (notif != null) {
+            binding.notifTextView.text=notif.notifText
+        }
+        if (notif != null) {
+            binding.disctiptonNotifTextView.text=notif.discription
+        }
+
 
         return binding.root
     }
 
-
     fun fetchDataFromFirebase() {
         val database = FirebaseDatabase.getInstance()
-        val reference = database.getReference("UserData")
+        val reference = database.getReference("Notification")
 
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        val userUid = currentUser?.uid
 
         reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (childSnapshot in dataSnapshot.children) {
-                    val myData = childSnapshot.getValue(UserModel::class.java)
-                    myData?.let {
-                        if(myData.UserId==userUid){
-                            binding.userRoomText.text = myData.Room
-                            binding.userNameText.text = myData.Name
-                            binding.userPhoneText.text = myData.Phone
-                            binding.userDormNomText.text = myData.Dorm
+                    val myData = childSnapshot.getValue(NotificationModel::class.java)
 
-                        }
+                    if (myData != null) {
+                        binding.notifTextView.text = myData.notifText
+                    }
+                    if (myData != null) {
+                        binding.disctiptonNotifTextView.text = myData.discription
+                    }
+
+
+
                     }
                 }
-            }
 
             override fun onCancelled(error: DatabaseError) {
 
             }
         })
     }
+
 }
