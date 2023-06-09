@@ -38,6 +38,7 @@ class DBHandler {
         val notifId = dbRef.push().key!!
         val notif = NotificationModel(notifId, str, discr)
         dbRef.child(notifId).setValue(notif)
+    }
 
         //
       /*  val message = Message.builder()
@@ -51,7 +52,6 @@ class DBHandler {
         } catch (e: Exception) {
             println("Failed to send notification: ${e.message}")
         }*/
-    }
 
     fun readNotificationList(adapter: ArrayAdapter<String>, notifList: MutableList<NotificationModel>) {
         dbRef = FirebaseDatabase.getInstance().getReference("Notification")

@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn = "navigation_view">
-
     <group
         android:checkableBehavior="single"
         >
@@ -24,9 +23,5 @@
             android:id="@+id/nav_info"
             android:icon="@drawable/nav_info"
             android:title="@string/infoHelpText"/>
-
     </group>
-
-
-
 </menu>

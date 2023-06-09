@@ -48,7 +48,7 @@ class ShopItemAdapter(private val itemList: MutableList<ShopItemModel>, private 
         holder.itemText.text = item.Item
 
         val storageRef = FirebaseStorage.getInstance().reference
-        val imageRef = storageRef.child("images/" + item.Picture + ".jpg") // Replace "images/image.jpg" with your image file path
+        val imageRef = storageRef.child("images/" + item.Picture + ".jpg")
 
         imageRef.downloadUrl.addOnSuccessListener { uri ->
             val imageUrl = uri.toString()

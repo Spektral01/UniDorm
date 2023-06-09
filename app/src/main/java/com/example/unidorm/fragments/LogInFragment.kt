@@ -52,9 +52,6 @@ class LogInFragment : Fragment() {
     }
 
     private fun onClickLogin() {
-        /*val intent = Intent(activity, NavigationActivity::class.java)
-        //Toast.makeText(this, "WORK", Toast.LENGTH_SHORT).show()
-        startActivity(intent)*/
         val email = binding.editTextTextEmailAddress.text.toString()
         val password = binding.editTextTextPassword.text.toString()
         if (email.isNotEmpty() && password.isNotEmpty())

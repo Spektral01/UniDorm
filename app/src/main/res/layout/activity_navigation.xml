@@ -31,7 +31,8 @@
         app:headerLayout="@layout/nav_header"
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
-        app:menu="@menu/menu_nav" >
+        app:menu="@menu/menu_nav">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,11 +44,11 @@
                 android:id="@+id/logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center|start"
                 android:layout_margin="20dp"
-                android:textSize="14sp"
                 android:background="#00000000"
-                android:text="Выйти" />
+                android:gravity="center|start"
+                android:text="Выйти"
+                android:textSize="14sp" />
 
 
         </LinearLayout>
