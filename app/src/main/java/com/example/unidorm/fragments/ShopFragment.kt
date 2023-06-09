@@ -58,7 +58,7 @@ class ShopFragment : Fragment() {
         }
 
 
-        val options = listOf("Option 1", "Option 2", "Option 3")
+        val options = listOf("Общежитие 1", "Общежитие 2", "Общежитие 3")
         val adapter1 = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, options)
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.dropdownDormSortMenu.adapter = adapter1

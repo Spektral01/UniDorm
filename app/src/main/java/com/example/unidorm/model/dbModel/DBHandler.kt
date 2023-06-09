@@ -18,7 +18,14 @@ import android.provider.MediaStore
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unidorm.fragments.contract.navigator
+import com.google.android.gms.nearby.messages.Message
+import com.google.firebase.messaging.Constants
+import com.google.firebase.messaging.FirebaseMessaging
+
+import com.google.firebase.messaging.RemoteMessage
+import org.json.JSONObject
 import java.io.ByteArrayOutputStream
+
 
 class DBHandler {
 
@@ -31,6 +38,19 @@ class DBHandler {
         val notifId = dbRef.push().key!!
         val notif = NotificationModel(notifId, str, discr)
         dbRef.child(notifId).setValue(notif)
+
+        //
+      /*  val message = Message.builder()
+            .setNotification(Notification(title, body))
+            .setToken(token)
+            .build()
+
+        try {
+            val response = FirebaseMessaging.getInstance().send(message)
+            println("Successfully sent notification: $response")
+        } catch (e: Exception) {
+            println("Failed to send notification: ${e.message}")
+        }*/
     }
 
     fun readNotificationList(adapter: ArrayAdapter<String>, notifList: MutableList<NotificationModel>) {

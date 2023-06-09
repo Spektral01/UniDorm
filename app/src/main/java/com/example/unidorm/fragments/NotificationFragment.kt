@@ -10,11 +10,14 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.unidorm.R
 import com.example.unidorm.databinding.FragmentNotificationBinding
 import com.example.unidorm.model.dbModel.DBHandler
 import com.example.unidorm.fragments.contract.navigator
 import com.example.unidorm.model.dbModel.NotificationModel
 import com.example.unidorm.model.dbModel.ShopItemModel
+import com.google.firebase.messaging.Constants.MessageNotificationKeys.TAG
+import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.storage.FirebaseStorage
 
 class NotificationFragment : Fragment(){
@@ -55,6 +58,29 @@ class NotificationFragment : Fragment(){
             }
 
 
+        }
+
+
+        FirebaseMessaging.getInstance().getToken()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val token = task.result
+                    Log.d(TAG, "Test token: $token")
+                } else {
+                    Log.w(TAG, "Failed to retrieve test token", task.exception)
+                }
+            }
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener{ task ->
+            if(!task.isSuccessful){
+                return@addOnCompleteListener
+            }
+
+            val token = task.result
+
+            Log.d(TAG, "real??? token: $token")
+
+            //Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
         }
 
 
