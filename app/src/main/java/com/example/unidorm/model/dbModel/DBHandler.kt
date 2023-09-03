@@ -16,6 +16,8 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.provider.MediaStore
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unidorm.fragments.contract.navigator
 import com.google.android.gms.nearby.messages.Message
@@ -80,7 +82,7 @@ class DBHandler {
         })
     }
 
-    fun readAddressInfo(adapter: ArrayAdapter<String>, dormList: MutableList<DormitoryModel>) {
+    /*fun readAddressInfo(adapter: ArrayAdapter<String>, dormList: MutableList<DormitoryModel>) {
         dbRef = FirebaseDatabase.getInstance().getReference("Dormitory")
 
 
@@ -105,6 +107,29 @@ class DBHandler {
             override fun onCancelled(error: DatabaseError) {
             }
         })
+    }*/
+    fun readAddressInfo(): LiveData<List<DormitoryModel>> {
+        val dbRef = FirebaseDatabase.getInstance().getReference("Dormitory")
+        val data = MutableLiveData<List<DormitoryModel>>()
+        dbRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val dormList = ArrayList<DormitoryModel>()
+
+                for (childSnapshot in snapshot.children) {
+                    val dorm = childSnapshot.getValue(DormitoryModel::class.java)
+
+                    if(dorm!=null){
+                        dormList.add(dorm)
+                    }
+                }
+
+                data.value = dormList
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
+        return data
     }
 
 
@@ -112,9 +137,9 @@ class DBHandler {
         dbRef = FirebaseDatabase.getInstance().getReference("ShopItem")
         val itemId = dbRef.push().key!!
         item.itemId = itemId
-        if (picName != null)
+/*        if (picName != null)
             item.Picture = picName
-        else item.Picture = " "
+        else item.Picture = " "*/
 
         dbRef.child(itemId).setValue(item)
     }

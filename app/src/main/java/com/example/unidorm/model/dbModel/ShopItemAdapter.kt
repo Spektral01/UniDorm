@@ -44,7 +44,6 @@ class ShopItemAdapter(private val itemList: MutableList<ShopItemModel>, private 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = itemList[position]
-
         holder.itemText.text = item.Item
 
         val storageRef = FirebaseStorage.getInstance().reference
@@ -52,16 +51,15 @@ class ShopItemAdapter(private val itemList: MutableList<ShopItemModel>, private 
 
         imageRef.downloadUrl.addOnSuccessListener { uri ->
             val imageUrl = uri.toString()
-            // Загрузка изображения из Firebase Storage с помощью библиотеки Glide
             Glide.with(holder.itemView.context)
                 .load(imageUrl)
                 .into(holder.itemImage)
         }.addOnFailureListener { exception ->
             Log.e("Firebase", "Error getting download URL: ${exception.message}")
         }
-
-
     }
+
+
 
     override fun getItemCount(): Int {
         return itemList.size

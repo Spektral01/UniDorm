@@ -54,24 +54,45 @@ class LogInFragment : Fragment() {
     private fun onClickLogin() {
         val email = binding.editTextTextEmailAddress.text.toString()
         val password = binding.editTextTextPassword.text.toString()
-        if (email.isNotEmpty() && password.isNotEmpty())
-        auth.signInWithEmailAndPassword(email, password)
+        UserValidation(email, password){ isSuccessText ->
+            if (isSuccessText) {
+                FirebaseAuthentication(email, password){ isSuccessLog ->
+                    if(isSuccessLog){
+                        updateUI()
+                    }
+                    else{
+                        Toast.makeText(activity, "Not correct", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } else {
+                Toast.makeText(activity, "Not correct", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun UserValidation(email: String, pass: String, callback: (isSuccess: Boolean) -> Unit){
+        if (email.isNotEmpty() && pass.isNotEmpty()) {
+            callback(true)
+        }
+        else {
+            callback(false)
+        }
+    }
+    private fun FirebaseAuthentication(email: String, pass: String, callback: (isSuccess: Boolean) -> Unit){
+        auth.signInWithEmailAndPassword(email, pass)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
-                    updateUI(user)
+                    callback(true)
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(activity, "Not correct", Toast.LENGTH_SHORT).show()
-                    //updateUI(null)
+                    callback(false)
                 }
             }
     }
 
-    private fun updateUI(user: FirebaseUser?) {
+    private fun updateUI() {
         val intent = Intent(activity, NavigationActivity::class.java)
         //Toast.makeText(this, "WORK", Toast.LENGTH_SHORT).show()
         startActivity(intent)

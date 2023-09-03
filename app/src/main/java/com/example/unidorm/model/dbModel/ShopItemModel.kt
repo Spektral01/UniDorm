@@ -3,6 +3,7 @@ package com.example.unidorm.model.dbModel
 import android.net.Uri
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.firebase.storage.StorageReference
 
 data class ShopItemModel(
     var itemId: String? = null,

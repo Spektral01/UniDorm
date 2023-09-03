@@ -11,6 +11,7 @@ import com.example.unidorm.databinding.FragmentAddressInfoBinding
 import com.example.unidorm.fragments.contract.navigator
 import com.example.unidorm.model.dbModel.DBHandler
 import com.example.unidorm.model.dbModel.DormitoryModel
+import java.util.ArrayList
 
 
 class AddressInfoFragment : Fragment() {
@@ -34,7 +35,20 @@ class AddressInfoFragment : Fragment() {
         adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, arrayListOf())
         binding.listView.adapter = adapter
 
-        dbHandl.readAddressInfo(adapter, dormList)
+        dbHandl.readAddressInfo().observe(viewLifecycleOwner) {
+            val items = ArrayList<String>()
+            for(dorm in it){
+                if(dorm.dormName!=null){
+                    dormList.add(dorm)
+            }
+                items.add(dorm.dormName.toString())
+            }
+            adapter.clear()
+            adapter.addAll(items)
+            adapter.notifyDataSetChanged()
+        }
+
+
 
         binding.listView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             val selectedItem = parent.getItemAtPosition(position) as String
