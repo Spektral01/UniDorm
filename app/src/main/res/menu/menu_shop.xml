@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single"
+        >
+        <item
+            android:id="@+id/dorm1"
+            android:title="Общежитие 1"/>
+        <item
+            android:id="@+id/dorm2"
+            android:title="Общежитие 2"/>
+        <item
+            android:id="@+id/dorm3"
+            android:title="Общежитие 3"/>
+        <item
+            android:id="@+id/dorm4"
+            android:title="Общежитие 4"/>
+        <item
+            android:id="@+id/dorm5"
+            android:title="Общежитие 5"/>
+        <item
+            android:id="@+id/dorm6"
+            android:title="Общежитие 6"/>
+        <item
+            android:id="@+id/dorm7"
+            android:title="Общежитие 7"/>
+        <item
+            android:id="@+id/dorm8"
+            android:title="Общежитие 8"/>
+
+    </group>
+
+</menu>
